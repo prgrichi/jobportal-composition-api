@@ -1,0 +1,33 @@
+<template>
+  <div class="min-h-[60vh] flex items-center justify-center">
+    <div class="text-center max-w-md">
+      <p class="text-6xl font-bold text-primary-500">404</p>
+
+      <h1 class="mt-4 text-2xl font-semibold text-gray-900">
+        Seite nicht gefunden
+      </h1>
+
+      <p class="mt-2 text-sm text-gray-600">
+        Die Seite, die du suchst, existiert nicht oder wurde verschoben.
+      </p>
+
+      <div class="mt-6 flex justify-center gap-3">
+        <RouterLink :to="{ name: 'home' }" class="btn btn-primary">
+          Zur Startseite
+        </RouterLink>
+
+        <button class="btn btn-secondary" @click="$router.back()">
+          Zurück
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'NotFoundPage',
+};
+</script>
+
+<style scoped></style>

@@ -1,0 +1,6 @@
+/* body { outline: 6px solid hotpink; } */
+
+@config "../tailwind.config.js";
+@import "tailwindcss";
+
+@import "./ui.css";
