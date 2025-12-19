@@ -1,0 +1,340 @@
+[
+  {
+    "id": "fe-001",
+    "title": "Frontend Developer (Vue.js)",
+    "company": "Softline Solutions GmbH",
+    "location": "Berlin",
+    "remote": true,
+    "level": "Mid",
+    "employmentType": "Full-time",
+    "salaryRange": "55.000 – 70.000 €",
+    "tags": [
+      "Vue 3",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "REST"
+    ],
+    "shortDescription": "Weiterentwicklung einer internen SaaS-Plattform mit Vue 3.",
+    "description": "Du arbeitest in einem festen Produktteam an einer internen SaaS-Anwendung. Fokus liegt auf der Weiterentwicklung bestehender Features, UI-Verbesserungen und sauberem, wartbarem Code.",
+    "responsibilities": [
+      "Umsetzung neuer Features im Frontend",
+      "Refactoring bestehender Komponenten",
+      "Zusammenarbeit mit Backend- und UX-Teams"
+    ],
+    "requirements": [
+      "Mehrjährige Erfahrung im Frontend",
+      "Gute JavaScript-Kenntnisse",
+      "Erfahrung mit Vue oder vergleichbaren Frameworks"
+    ],
+    "createdAt": "2024-12-01"
+  },
+  {
+    "id": "fe-002",
+    "title": "Frontend Engineer",
+    "company": "Meyer Digital Services",
+    "location": "Hamburg",
+    "remote": false,
+    "level": "Senior",
+    "employmentType": "Full-time",
+    "salaryRange": "70.000 – 85.000 €",
+    "tags": [
+      "Vue",
+      "TypeScript",
+      "Design Systems"
+    ],
+    "shortDescription": "Entwicklung und Pflege eines internen Design-Systems.",
+    "description": "Du entwickelst UI-Komponenten für ein unternehmensweites Design-System und arbeitest eng mit Design und Produktmanagement zusammen.",
+    "responsibilities": [
+      "Aufbau eines komponentenbasierten Frontends",
+      "Pflege und Dokumentation von UI-Komponenten",
+      "Code Reviews"
+    ],
+    "requirements": [
+      "Sehr gute JavaScript- und CSS-Kenntnisse",
+      "Erfahrung mit Component Libraries",
+      "Saubere Arbeitsweise"
+    ],
+    "createdAt": "2024-11-28"
+  },
+  {
+    "id": "fe-003",
+    "title": "Web Developer Frontend",
+    "company": "Kramer Industrie Software",
+    "location": "Stuttgart",
+    "remote": true,
+    "level": "Mid",
+    "employmentType": "Full-time",
+    "salaryRange": "50.000 – 65.000 €",
+    "tags": [
+      "Vue",
+      "JavaScript",
+      "SCSS"
+    ],
+    "shortDescription": "Frontend-Entwicklung für industrielle Web-Anwendungen.",
+    "description": "Du arbeitest an Web-Anwendungen zur Steuerung und Visualisierung industrieller Prozesse.",
+    "responsibilities": [
+      "Umsetzung von UI-Anforderungen",
+      "Enge Abstimmung mit Backend-Entwicklung",
+      "Bugfixing und Optimierung"
+    ],
+    "requirements": [
+      "Erfahrung im Frontend",
+      "Sauberes HTML und CSS",
+      "Teamfähigkeit"
+    ],
+    "createdAt": "2024-11-20"
+  },
+  {
+    "id": "fe-004",
+    "title": "Frontend Developer",
+    "company": "HR Tools Europe AG",
+    "location": "Köln",
+    "remote": true,
+    "level": "Junior",
+    "employmentType": "Full-time",
+    "salaryRange": "45.000 – 55.000 €",
+    "tags": [
+      "Vue",
+      "JavaScript",
+      "CSS"
+    ],
+    "shortDescription": "Einstieg ins Produktteam einer HR-SaaS-Lösung.",
+    "description": "Als Teil eines kleinen Frontend-Teams arbeitest du an neuen Features und verbesserst bestehende Views.",
+    "responsibilities": [
+      "Umsetzung einfacher Features",
+      "Mitarbeit an UI-Komponenten",
+      "Bugfixing"
+    ],
+    "requirements": [
+      "Grundkenntnisse in JavaScript",
+      "Interesse an Vue",
+      "Lernbereitschaft"
+    ],
+    "createdAt": "2024-12-03"
+  },
+  {
+    "id": "fe-005",
+    "title": "Frontend Developer (In-House)",
+    "company": "LogiCore Systems",
+    "location": "Leipzig",
+    "remote": false,
+    "level": "Mid",
+    "employmentType": "Full-time",
+    "salaryRange": "52.000 – 68.000 €",
+    "tags": [
+      "Vue",
+      "REST",
+      "UI"
+    ],
+    "shortDescription": "In-House Frontend-Entwicklung für Logistiksoftware.",
+    "description": "Du entwickelst Oberflächen für interne Tools im Logistikbereich.",
+    "responsibilities": [
+      "Weiterentwicklung bestehender UIs",
+      "Zusammenarbeit mit Produktmanagement",
+      "Qualitätssicherung"
+    ],
+    "requirements": [
+      "Frontend-Erfahrung",
+      "Saubere UI-Umsetzung",
+      "Selbstständige Arbeitsweise"
+    ],
+    "createdAt": "2024-11-15"
+  },
+  {
+    "id": "fe-006",
+    "title": "Frontend Entwickler",
+    "company": "FinData Solutions",
+    "location": "Frankfurt",
+    "remote": true,
+    "level": "Senior",
+    "employmentType": "Full-time",
+    "salaryRange": "75.000 – 90.000 €",
+    "tags": [
+      "Vue 3",
+      "TypeScript",
+      "FinTech"
+    ],
+    "shortDescription": "Frontend-Entwicklung für datengetriebene Finanzsoftware.",
+    "description": "Du arbeitest an komplexen Dashboards und Datenvisualisierungen.",
+    "responsibilities": [
+      "Entwicklung performanter Frontends",
+      "Technische Konzeption",
+      "Mentoring"
+    ],
+    "requirements": [
+      "Sehr gute Frontend-Kenntnisse",
+      "Erfahrung mit komplexen UIs",
+      "Teamorientiertes Arbeiten"
+    ],
+    "createdAt": "2024-11-10"
+  },
+  {
+    "id": "fe-007",
+    "title": "Frontend Developer",
+    "company": "EduTech Services GmbH",
+    "location": "München",
+    "remote": true,
+    "level": "Mid",
+    "employmentType": "Full-time",
+    "salaryRange": "50.000 – 65.000 €",
+    "tags": [
+      "Vue",
+      "JavaScript",
+      "Accessibility"
+    ],
+    "shortDescription": "Frontend für Lernplattformen im Bildungsbereich.",
+    "description": "Du entwickelst barrierearme Benutzeroberflächen für eine Bildungsplattform.",
+    "responsibilities": [
+      "Umsetzung neuer Features",
+      "Optimierung der Usability",
+      "Zusammenarbeit mit Design"
+    ],
+    "requirements": [
+      "Frontend-Erfahrung",
+      "Grundkenntnisse Accessibility",
+      "Saubere Code-Struktur"
+    ],
+    "createdAt": "2024-11-18"
+  },
+  {
+    "id": "fe-008",
+    "title": "Frontend Engineer",
+    "company": "CloudOps GmbH",
+    "location": "Remote",
+    "remote": true,
+    "level": "Mid",
+    "employmentType": "Full-time",
+    "salaryRange": "60.000 – 75.000 €",
+    "tags": [
+      "Vue",
+      "Dashboards",
+      "API"
+    ],
+    "shortDescription": "Frontend-Entwicklung für Cloud-Management-Tools.",
+    "description": "Du baust und pflegst Web-Dashboards zur Verwaltung von Cloud-Ressourcen.",
+    "responsibilities": [
+      "Dashboard-Entwicklung",
+      "API-Integration",
+      "Code Reviews"
+    ],
+    "requirements": [
+      "Erfahrung mit Web-Frontends",
+      "API-Verständnis",
+      "Saubere Umsetzung"
+    ],
+    "createdAt": "2024-12-02"
+  },
+  {
+    "id": "fe-009",
+    "title": "Frontend Developer",
+    "company": "Retail Systems AG",
+    "location": "Düsseldorf",
+    "remote": false,
+    "level": "Junior",
+    "employmentType": "Full-time",
+    "salaryRange": "45.000 – 55.000 €",
+    "tags": [
+      "Vue",
+      "JavaScript",
+      "UI"
+    ],
+    "shortDescription": "Frontend-Entwicklung für interne Retail-Tools.",
+    "description": "Du arbeitest an internen Anwendungen für den Einzelhandel.",
+    "responsibilities": [
+      "Umsetzung von UI-Komponenten",
+      "Bugfixing",
+      "Tests"
+    ],
+    "requirements": [
+      "Grundkenntnisse Frontend",
+      "Interesse an Produktentwicklung",
+      "Teamfähigkeit"
+    ],
+    "createdAt": "2024-11-22"
+  },
+  {
+    "id": "fe-010",
+    "title": "Frontend Developer",
+    "company": "HealthSoft Solutions",
+    "location": "Nürnberg",
+    "remote": true,
+    "level": "Mid",
+    "employmentType": "Full-time",
+    "salaryRange": "55.000 – 70.000 €",
+    "tags": [
+      "Vue",
+      "Forms",
+      "UX"
+    ],
+    "shortDescription": "Frontend für medizinische Dokumentationssoftware.",
+    "description": "Du entwickelst Formulare und Views für eine medizinische Web-App.",
+    "responsibilities": [
+      "Formular-Entwicklung",
+      "UI-Optimierung",
+      "Abstimmung mit Fachbereichen"
+    ],
+    "requirements": [
+      "Frontend-Erfahrung",
+      "Sorgfältige Arbeitsweise",
+      "UX-Verständnis"
+    ],
+    "createdAt": "2024-11-30"
+  },
+  {
+    "id": "fe-011",
+    "title": "Frontend Developer",
+    "company": "Compliance Tech GmbH",
+    "location": "Remote",
+    "remote": true,
+    "level": "Senior",
+    "employmentType": "Full-time",
+    "salaryRange": "70.000 – 85.000 €",
+    "tags": [
+      "Vue 3",
+      "Security",
+      "UI"
+    ],
+    "shortDescription": "Frontend für Compliance- und Audit-Software.",
+    "description": "Du entwickelst Benutzeroberflächen für sicherheitskritische Anwendungen.",
+    "responsibilities": [
+      "Frontend-Architektur",
+      "Umsetzung komplexer UI-Logik",
+      "Code Reviews"
+    ],
+    "requirements": [
+      "Mehrjährige Frontend-Erfahrung",
+      "Sauberer Code",
+      "Eigenverantwortung"
+    ],
+    "createdAt": "2024-11-12"
+  },
+  {
+    "id": "fe-012",
+    "title": "Frontend Developer (Vue.js)",
+    "company": "TravelTech Solutions",
+    "location": "Bremen",
+    "remote": true,
+    "level": "Mid",
+    "employmentType": "Full-time",
+    "salaryRange": "52.000 – 68.000 €",
+    "tags": [
+      "Vue",
+      "JavaScript",
+      "UX"
+    ],
+    "shortDescription": "Frontend-Entwicklung für B2B-Reiseplattform.",
+    "description": "Du entwickelst Oberflächen für Buchungs- und Verwaltungsprozesse.",
+    "responsibilities": [
+      "UI-Entwicklung",
+      "Optimierung bestehender Features",
+      "Zusammenarbeit mit Produktteam"
+    ],
+    "requirements": [
+      "Frontend-Erfahrung",
+      "Gute JavaScript-Kenntnisse",
+      "UX-Bewusstsein"
+    ],
+    "createdAt": "2024-12-04"
+  }
+]
