@@ -104,13 +104,22 @@ export default {
         } else {
           await signInWithEmailAndPassword(auth, values.email, values.password);
           this.toast.success('Login erfolgreich!');
-          this.$router.push({ name: 'home' });
+          const redirectPath = this.$route.query.redirect || '/';
+          this.$router.push(redirectPath);
         }
 
         this.isLoading = false;
       } catch (error) {
         this.isLoading = false;
-        this.toast.error(error.message);
+        if (error.code === 'auth/invalid-credential') {
+          this.toast.error('Die Zugangsdaten sind ungültig.');
+        }
+        else if (error.code === 'auth/email-already-in-use') {
+          this.toast.error('Die E-Mail-Adresse wird bereits verwendet.');
+        }
+        else {
+          this.toast.error(error.message);
+        }
       }
     }
   },
