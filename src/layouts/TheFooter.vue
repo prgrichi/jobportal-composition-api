@@ -8,7 +8,7 @@
         <!-- Projektinfo -->
         <div>
           <p class="text-sm font-medium text-neutral-900">
-            Jobportal · Portfolio-Projekt
+            {{ $t('footer.projectTitle') }} · {{ $t('footer.projectSubTitle') }}
           </p>
           <p class="mt-1 text-sm text-neutral-600">
             Vue · Pinia · Firebase · Tailwind
@@ -17,14 +17,17 @@
 
         <!-- Navigation -->
         <nav class="flex gap-6 text-sm">
-          <RouterLink :to="{ name: 'home' }" class="text-neutral-600 hover:text-primary-600 transition">Start
+          <RouterLink :to="{ name: 'home' }" class="text-neutral-600 hover:text-primary-600 transition">
+            {{ $t('footer.link.homepage') }}
           </RouterLink>
 
           <RouterLink v-if="!isAuthenticated" :to="{ name: 'login' }"
-            class="text-neutral-600 hover:text-primary-600 transition">Login
+            class="text-neutral-600 hover:text-primary-600 transition">
+            {{ $t('general.btn.login') }}
           </RouterLink>
 
-          <RouterLink :to="{ name: 'jobs' }" class="text-neutral-600 hover:text-primary-600 transition">Jobs
+          <RouterLink :to="{ name: 'jobs' }" class="text-neutral-600 hover:text-primary-600 transition">
+            {{ $t('footer.link.jobs') }}
           </RouterLink>
 
           <a href="https://github.com/prgrichi/jobportal" rel="noopener noreferrer" target="_blank"

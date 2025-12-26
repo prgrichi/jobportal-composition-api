@@ -1,0 +1,35 @@
+{
+  "nav": {
+    "userGreeting": "Hallo",
+    "link": {
+      "homepage": "Jobportal",
+      "job": "Jobs",
+      "login": "Login",
+      "register": "Registrieren",
+      "logout": "Logout"
+    }
+  },
+  "footer": {
+    "projectTitle": "Jobportal",
+    "projectSubTitle": "Portfolio-Projekt",
+    "link": {
+      "homepage": "Start",
+      "login": "Login",
+      "jobs": "Jobs"
+    }
+  },
+  "general": {
+    "btn": {
+      "jobs": "Jobs ansehen",
+      "signInNow": "Jetzt anmelden",
+      "registerNow": "Jetzt registrieren",
+      "signIn": "Anmelden",
+      "register": "Registrieren",
+      "logout": "Logout",
+      "github": "Github ansehen",
+      "loadJobs": "Mehr Jobs laden",
+      "apply": "Bewerben",
+      "save": "Speichern"
+    }
+  }
+}

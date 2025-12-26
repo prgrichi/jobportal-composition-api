@@ -4,29 +4,33 @@
       <div class="flex h-16 items-center justify-between">
 
         <!-- Logo -->
-        <RouterLink :to="{ name: 'home' }" class="text-sm font-semibold text-neutral-900">Jobportal</RouterLink>
+        <RouterLink :to="{ name: 'home' }" class="text-sm font-semibold text-neutral-900">{{ $t('nav.link.homepage') }}
+        </RouterLink>
 
         <!-- Navigation -->
         <nav v-if="authReady" class="flex items-center gap-6 text-sm">
           <p class="text-neutral-600 hover:text-neutral-900 transition after:content-['/'] after:ml-6"
-            v-if="authStore.isAuthenticated">Hallo, {{
+            v-if="authStore.isAuthenticated">{{ $t('nav.userGreeting') }}, {{
               authStore.userName }}</p>
 
-          <RouterLink :to="{ name: 'jobs' }" class="text-neutral-600 hover:text-neutral-900 transition">Jobs
+          <RouterLink :to="{ name: 'jobs' }" class="text-neutral-600 hover:text-neutral-900 transition">
+            {{ $t('nav.link.job') }}
           </RouterLink>
 
           <RouterLink :to="{ name: 'login' }" v-if="!isAuthenticated"
-            class="text-neutral-600 hover:text-neutral-900 transition">Login
+            class="text-neutral-600 hover:text-neutral-900 transition">
+            {{ $t('general.btn.login') }}
           </RouterLink>
 
           <RouterLink :to="{ name: 'register' }" v-if="!isAuthenticated" class="inline-flex items-center justify-center rounded-lg
           bg-primary-500 px-4 py-2
                         text-sm font-medium text-white
                         transition hover:bg-primary-600
-                        focus:outline-none focus:ring-2 focus:ring-primary-500/30">Registrieren</RouterLink>
+                        focus:outline-none focus:ring-2 focus:ring-primary-500/30">{{ $t('general.btn.register') }}
+          </RouterLink>
 
           <button v-if="isAuthenticated" class="btn btn-secondary" @click="handleLogout">
-            Logout
+            {{ $t('general.btn.logout') }}
           </button>
 
         </nav>

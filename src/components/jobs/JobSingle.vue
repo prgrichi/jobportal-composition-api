@@ -21,12 +21,6 @@
             <span>{{ job.location }}</span>
           </p>
         </div>
-
-        <!-- Optional Badge -->
-        <span v-if="job.isNew"
-          class="shrink-0 rounded-full bg-accent-500/70 px-2.5 py-1 text-xs font-medium text-white">
-          Neu
-        </span>
       </div>
 
       <!-- Tags -->
@@ -45,7 +39,7 @@
 
         <span
           class="inline-flex items-center gap-1 text-sm font-medium text-accent-500 transition group-hover:text-accent-600">
-          Details <span aria-hidden="true">→</span>
+          {{ $t('jobs.details') }} <span aria-hidden="true">→</span>
         </span>
       </div>
     </article>

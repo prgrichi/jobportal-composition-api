@@ -31,13 +31,13 @@
 
       <!-- Keine Jobs gefunden -->
       <div v-if="jobStore.filteredJobs.length === 0 && !jobStore.isLoading" class="no-results">
-        😕 Keine Jobs gefunden
+        😕 {{ $t('jobs.jobsNotFound') }}
       </div>
 
       <template v-if="jobStore.isLoadingMore">
         <JobSkeleton v-for="n in 3" :key="`sk-${n}`" />
       </template>
-      
+
     </div>
 
     <div v-if="!jobStore.isLoading && jobStore.hasMore" class="mt-8 text-center">
@@ -51,12 +51,12 @@
     <!-- Alle geladen -->
     <div v-if="!jobStore.hasMore && jobStore.jobs.length > 0 && jobStore.filteredJobs.length !== 0"
       class="mt-8 text-center text-gray-500">
-      Alle {{ jobStore.jobs.length }} Jobs geladen
+      {{ $t('jobs.allLoaded', { count: jobStore.jobs.length }) }}
     </div>
 
     <!-- Keine Jobs -->
     <div v-if="jobStore.jobs.length === 0 && !jobStore.isLoading" class="text-center">
-      Keine Jobs gefunden
+      {{ $t('jobs.jobsNotFound') }}
     </div>
 
   </section>
@@ -67,12 +67,17 @@
 import { useJobStore } from '@/stores/jobs/jobs';
 import JobSingle from './JobSingle.vue';
 import JobSkeleton from './JobSkeleton.vue';
+import { useI18n } from 'vue-i18n';
 
 // DEBUG
 import DebugBox from '@/components/debug/DebugBox.vue';
 
 export default {
   name: 'JobList',
+  setup() {
+    const { t, locale } = useI18n();
+    return { t, locale };
+  },
   components: {
     JobSingle,
     JobSkeleton,
@@ -90,7 +95,7 @@ export default {
       return useJobStore();
     },
     loadMoreLabel() {
-      return this.jobStore.isLoadingMore ? 'laden...' : 'Mehr Jobs laden';
+      return this.jobStore.isLoadingMore ? this.t('jobs.ui.loading') : this.t('jobs.ui.loadMore');
     },
   },
   created() {

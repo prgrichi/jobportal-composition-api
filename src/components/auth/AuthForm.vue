@@ -2,10 +2,11 @@
   <div class="mt-4 md:mt-6">
     <Form @submit="onSubmit" :validation-schema="schema" class="max-w-md mx-auto rounded-lg">
       <div class="mb-4">
-        <label for="email" class="block text-sm font-medium text-neutral-700 mb-1">E-Mail</label>
+        <label for="email" class="block text-sm font-medium text-neutral-700 mb-1">{{ $t('auth.general.email')
+          }}</label>
         <Field as="input" name="email" type="email" id="email"
           class="w-full border bg-white border-neutral-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Gib deine E-Mail-Adresse ein">
+          :placeholder="$t('auth.general.placeholder.email')">
         </Field>
         <ErrorMessage name="email" v-slot="{ message }">
           <small class="text-red-500">{{ message }}</small>
@@ -13,10 +14,11 @@
       </div>
 
       <div class="mb-6">
-        <label for="password" class="block text-sm font-medium text-neutral-700 mb-1">Passwort</label>
+        <label for="password" class="block text-sm font-medium text-neutral-700 mb-1">{{ $t('auth.general.password')
+          }}</label>
         <Field as="input" name="password" type="password" id="password"
           class="w-full border bg-white border-neutral-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Erstelle ein Passwort">
+          :placeholder="$t('auth.general.placeholder.password')">
         </Field>
         <ErrorMessage name="password" v-slot="{ message }">
           <small class="text-red-500">{{ message }}</small>
@@ -24,11 +26,11 @@
       </div>
 
       <div v-if="mode === 'register'" class="mb-6">
-        <label for="confirmPassword" class="block text-sm font-medium text-neutral-700 mb-1">Passwort
-          wiederholen</label>
+        <label for="confirmPassword" class="block text-sm font-medium text-neutral-700 mb-1">{{
+          $t('auth.general.confirmPassword') }}</label>
         <Field as="input" name="confirmPassword" type="password" id="confirmPassword"
           class="w-full border bg-white border-neutral-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Passwort wiederholen">
+          :placeholder="$t('auth.general.placeholder.confirmPassword')">
         </Field>
         <ErrorMessage name="confirmPassword" v-slot="{ message }">
           <small class="text-red-500">{{ message }}</small>
@@ -50,9 +52,14 @@ import * as yup from 'yup';
 import { useToastStore } from '@/stores/toast/toast';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/config/firebase';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'AuthForm',
+  setup() {
+    const { t, locale } = useI18n();
+    return { t, locale };
+  },
   components: {
     Form,
     Field,
@@ -67,15 +74,15 @@ export default {
   },
   data() {
     const baseSchema = {
-      email: yup.string().required('E-Mail ist erforderlich').email('Ungültige E-Mail-Adresse'),
-      password: yup.string().required('Passwort ist erforderlich').min(6, 'Passwort muss mindestens 6 Zeichen lang sein'),
+      email: yup.string().required(this.t('errors.emailRequired')).email(this.t('errors.emailInvalid')),
+      password: yup.string().required(this.t('errors.passwordRequired')).min(6, this.t('errors.paswordLength')),
     };
 
     const registerSchema = {
       ...baseSchema,
       confirmPassword: yup.string()
-        .oneOf([yup.ref('password'), null], 'Passwörter müssen übereinstimmen')
-        .required('Bitte bestätige dein Passwort'),
+        .oneOf([yup.ref('password'), null], this.t('errors.passwordMismatch'))
+        .required(this.t('errors.confirmPassword')),
     };
 
     return {
@@ -87,9 +94,9 @@ export default {
   computed: {
     submitLabel() {
       if (this.mode === 'register') {
-        return this.isLoading ? 'Konto wird erstellt...' : 'Konto erstellen';
+        return this.isLoading ? this.t('general.btn.ui.creatingAccount') : this.t('general.btn.ui.createAccount');
       }
-      return this.isLoading ? 'Anmelden...' : 'Anmelden';
+      return this.isLoading ? this.t('general.btn.ui.signingIn') : this.t('general.btn.ui.signIn');
     },
   },
   methods: {
@@ -99,11 +106,11 @@ export default {
 
         if (this.mode === 'register') {
           await createUserWithEmailAndPassword(auth, values.email, values.password);
-          this.toast.success('Registrierung erfolgreich!');
+          this.toast.success(this.t('toast.registerSuccess'));
           this.$router.push({ name: 'home' });
         } else {
           await signInWithEmailAndPassword(auth, values.email, values.password);
-          this.toast.success('Login erfolgreich!');
+          this.toast.success(this.t('toast.loginSuccess'));
           const redirectPath = this.$route.query.redirect || '/';
           this.$router.push(redirectPath);
         }
@@ -112,10 +119,10 @@ export default {
       } catch (error) {
         this.isLoading = false;
         if (error.code === 'auth/invalid-credential') {
-          this.toast.error('Die Zugangsdaten sind ungültig.');
+          this.toast.error(this.t('errors.invalidCredentials'));
         }
         else if (error.code === 'auth/email-already-in-use') {
-          this.toast.error('Die E-Mail-Adresse wird bereits verwendet.');
+          this.toast.error(this.t('errors.emailAlreadyInUse'));
         }
         else {
           this.toast.error(error.message);

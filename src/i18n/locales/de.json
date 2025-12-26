@@ -1,0 +1,104 @@
+{
+  "general": {
+    "btn": {
+      "jobs": "Jobs ansehen",
+      "signInNow": "Jetzt anmelden",
+      "registerNow": "Jetzt registrieren",
+      "signIn": "Anmelden",
+      "register": "Registrieren",
+      "registerAccount": "Konto erstellen",
+      "logout": "Logout",
+      "login": "Login",
+      "github": "Github ansehen",
+      "loadJobs": "Mehr Jobs laden",
+      "apply": "Bewerben",
+      "save": "Speichern",
+      "ui": {
+        "creatingAccount": "Konto wird erstellt...",
+        "createAccount": "Konto erstellen",
+        "signingIn": "Anmelden...",
+        "signIn": "Anmelden"
+      }
+    }
+  },
+  "nav": {
+    "userGreeting": "Hallo",
+    "link": {
+      "homepage": "Jobportal",
+      "job": "Jobs",
+      "login": "Login",
+      "register": "Registrieren",
+      "logout": "Logout"
+    }
+  },
+  "footer": {
+    "projectTitle": "Jobportal",
+    "projectSubTitle": "Portfolio-Projekt",
+    "link": {
+      "homepage": "Start",
+      "login": "Login",
+      "jobs": "Jobs"
+    }
+  },
+  "threejobsteaser": {
+    "title": "Neueste Jobs",
+    "subtitle": "3 aktuelle Frontend- & Web-Rollen.",
+    "viewAll": "Alle Jobs",
+    "placeholder": {
+      "locked": "Gesperrt",
+      "text": "Melde dich an, um diesen Job zu sehen"
+    }
+  },
+  "auth": {
+    "general": {
+      "email": "E-Mail",
+      "password": "Passwort",
+      "confirmPassword": "Passwort bestätigen",
+      "placeholder": {
+        "email": "Gib deine E-Mail ein",
+        "password": "Gib dein Passwort ein",
+        "confirmPassword": "Bestätige dein Passwort"
+      }
+    },
+    "login": {
+      "title": "Loginpage",
+      "subTitle": "Melde dich an, um gespeicherte Jobs zu sehen."
+    },
+    "register": {
+      "title": "Registrieren",
+      "subTitle": "Erstelle ein Konto, um Jobs zu speichern."
+    }
+  },
+  "errors": {
+    "emailRequired": "E-Mail ist erforderlich",
+    "emailInvalid": "Ungültige E-Mail-Adresse",
+    "passwordRequired": "Passwort ist erforderlich",
+    "paswordLength": "Passwort muss mindestens 6 Zeichen lang sein",
+    "logoutError": "Fehler beim Ausloggen. Bitte versuche es erneut.",
+    "loginError": "Fehler beim Einloggen. Bitte überprüfe deine Anmeldedaten.",
+    "registerError": "Fehler bei der Registrierung. Bitte versuche es erneut.",
+    "passwordMismatch": "Passwörter stimmen nicht überein.",
+    "confirmPassword": "Bitte bestätige dein Passwort",
+    "invalidCredentials": "Die Zugangsdaten sind ungültig.",
+    "emailAlreadyInUse": "Die E-Mail-Adresse wird bereits verwendet."
+  },
+  "toast": {
+    "loginSuccess": "Erfolgreich eingeloggt.",
+    "logoutSuccess": "Erfolgreich ausgeloggt.",
+    "registerSuccess": "Konto erfolgreich erstellt."
+  },
+  "jobs": {
+    "headline": "Verfügbare Jobs",
+    "filter": {
+      "headline": "Filter",
+      "inputPlaceholder": "Job, Firma oder Stichwort..."
+    },
+    "jobsNotFound": "Keine Jobs gefunden.",
+    "ui": {
+      "loadMore": "Mehr Jobs laden",
+      "loading": "Laden..."
+    },
+    "allLoaded": "Alle {count} Jobs geladen",
+    "details": "Details"
+  }
+}

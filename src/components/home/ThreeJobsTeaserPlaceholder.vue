@@ -5,7 +5,7 @@
     <div class="mb-3 flex justify-end">
       <span
         class="inline-flex items-center gap-1 rounded-full bg-neutral-100 px-2. 5 py-1 text-xs font-medium text-neutral-600">
-        🔒 Gesperrt
+        🔒 {{ $t('threejobsteaser.placeholder.locked') }}
       </span>
     </div>
 
@@ -22,16 +22,16 @@
 
     <!-- Message -->
     <p class="mb-3 text-center text-sm text-neutral-600">
-      Melde dich an, um diesen Job zu sehen
+      {{ $t('threejobsteaser.placeholder.text') }}
     </p>
 
     <!-- Single CTA -->
     <div class="grid justify-center gap-3 md:grid-cols-2">
       <RouterLink to="/login" class="btn btn-primary">
-        Jetzt anmelden
+        {{ $t('general.btn.signInNow') }}
       </RouterLink>
       <RouterLink to="/register" class="btn btn-secondary">
-        Jetzt registrieren
+        {{ $t('general.btn.registerNow') }}
       </RouterLink>
     </div>
   </article>
