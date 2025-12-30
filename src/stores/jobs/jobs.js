@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { collection, query, orderBy, where, startAfter, limit, getDocs, doc, getDoc } from 'firebase/firestore';
+import { collection, query, orderBy, startAfter, limit, getDocs, doc, getDoc } from 'firebase/firestore';
 import { db } from '@/config/firebase';
 
 export const useJobStore = defineStore('jobs', {

@@ -49,6 +49,11 @@
             {{ $t('nav.link.job') }}
           </RouterLink>
 
+          <RouterLink :to="{ name: 'profile' }" v-if="isAuthenticated"
+            class="inline-flex items-center text-neutral-600 hover:text-neutral-900 transition">
+            {{ $t('nav.link.profile') }}
+          </RouterLink>
+
           <RouterLink :to="{ name: 'login' }" v-if="!isAuthenticated" class="btn btn-secondary">
             {{ $t('general.btn.login') }}
           </RouterLink>

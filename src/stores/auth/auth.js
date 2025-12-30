@@ -37,8 +37,14 @@ export const useAuthStore = defineStore('auth', {
       const userSnap = await getDoc(userRef);
 
       if (!userSnap.exists()) {
+        console.log(user);
         await setDoc(userRef, {
+          uid: user.uid,                    
           email: user.email,
+          firstName: '',                   
+          lastName: '',                    
+          jobTitle: '',                     
+          location: '',                    
           createdAt: serverTimestamp(),
           updatedAt: serverTimestamp()
         });

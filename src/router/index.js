@@ -5,6 +5,7 @@ import LoginPage from '@/pages/LoginPage.vue';
 import RegisterPage from '@/pages/RegisterPage.vue';
 import JobsDetailsPage from '@/pages/JobsDetailPage.vue';
 import FavoriteJobsPage from '@/pages/FavoriteJobsPage.vue';
+import ProfilePage from '@/pages/ProfilePage.vue';
 import { useAuthStore } from '@/stores/auth/auth';
 
 const router = createRouter({
@@ -40,9 +41,18 @@ const router = createRouter({
     {
       path: '/favoriteJobs',
       name: 'favoriteJobs',
-      component: FavoriteJobsPage,
+      component: () => import('@/pages/FavoriteJobsPage.vue'),
       meta: {
         title: 'FavoriteJobs',
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: () => import('@/pages/ProfilePage.vue'),
+      meta: {
+        title: 'Profile',
         requiresAuth: true,
       },
     },
