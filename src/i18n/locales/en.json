@@ -30,7 +30,8 @@
       "login": "Login",
       "register": "Register",
       "logout": "Logout",
-      "favoriteJobs": "My Jobs"
+      "favoriteJobs": "My Jobs",
+      "profile": "Profile"
     }
   },
   "footer": {
@@ -110,6 +111,10 @@
       "noFavoritesTitle": "Nothing saved yet",
       "noFavoritesText": "Bookmark jobs to view them here later."
     }
+  },
+  "profile": {
+    "title": "Profile",
+    "subtitle": "Manage your personal information"
   },
   "hero": {
     "title": "A Modern Job Board as a Portfolio Project",

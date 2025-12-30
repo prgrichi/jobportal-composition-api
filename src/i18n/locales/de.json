@@ -30,7 +30,8 @@
       "login": "Login",
       "register": "Registrieren",
       "logout": "Logout",
-      "favoriteJobs": "Meine Jobs"
+      "favoriteJobs": "Meine Jobs",
+      "profile": "Profil"
     }
   },
   "footer": {
@@ -113,6 +114,10 @@
       "noFavoritesTitle": "Du hast noch keine gespeicherten Jobs.",
       "noFavoritesText": "Speichere Jobs, um sie später wiederzufinden."
     }
+  },
+  "profile": {
+    "title": "Profil",
+    "subtitle": "Verwalte deine persönlichen Informationen"
   },
   "hero": {
     "title": "Eine moderne Jobbörse als Portfolio-Projekt",
