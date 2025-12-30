@@ -19,7 +19,7 @@
         <div class="rounded-xl border border-neutral-200 bg-white divide-y divide-neutral-200">
           <div class="p-6 md:p-7">
             <h3 class="font-medium text-neutral-900">
-              {{ $t('why.features.relevantJobs. title') }}
+              {{ $t('why.features.relevantJobs.title') }}
             </h3>
             <p class="mt-2 text-sm text-neutral-600">
               {{ $t('why.features.relevantJobs.description') }}

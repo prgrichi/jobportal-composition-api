@@ -4,7 +4,7 @@
 
       <div class="mb-14 text-center">
         <p class="text-sm uppercase tracking-wider text-primary-600">
-          {{ $t('techStack. label') }}
+          {{ $t('techStack.label') }}
         </p>
         <h2 class="mt-2 text-3xl font-semibold text-gray-900">
           {{ $t('techStack.title') }}
@@ -25,7 +25,7 @@
                 01
               </span>
               <div>
-                <h3 class="text-lg font-medium">{{ $t('techStack.items.vue. title') }}</h3>
+                <h3 class="text-lg font-medium">{{ $t('techStack.items.vue.title') }}</h3>
                 <p class="mt-1 text-sm text-gray-600">
                   {{ $t('techStack.items.vue.description') }}
                 </p>
@@ -53,7 +53,7 @@
               <div>
                 <h3 class="text-lg font-medium">{{ $t('techStack.items.vueRouter.title') }}</h3>
                 <p class="mt-1 text-sm text-gray-600">
-                  {{ $t('techStack.items. vueRouter.description') }}
+                  {{ $t('techStack.items.vueRouter.description') }}
                 </p>
               </div>
             </div>
@@ -69,7 +69,7 @@
               <div>
                 <h3 class="text-lg font-medium">{{ $t('techStack.items.firebase.title') }}</h3>
                 <p class="mt-1 text-sm text-gray-600">
-                  {{ $t('techStack. items.firebase.description') }}
+                  {{ $t('techStack.items.firebase.description') }}
                 </p>
               </div>
             </div>
@@ -93,9 +93,9 @@
                 06
               </span>
               <div>
-                <h3 class="text-lg font-medium">{{ $t('techStack. items.tailwind.title') }}</h3>
+                <h3 class="text-lg font-medium">{{ $t('techStack.items.tailwind.title') }}</h3>
                 <p class="mt-1 text-sm text-gray-600">
-                  {{ $t('techStack. items.tailwind.description') }}
+                  {{ $t('techStack.items.tailwind.description') }}
                 </p>
               </div>
             </div>
