@@ -10,7 +10,7 @@
       </div>
 
       <div v-if="loading" class="text-center py-20">
-        <p class="text-gray-600">Lädt... </p>
+        <p class="text-gray-600">{{ $t('general.loading') }}</p>
       </div>
 
       <div v-else class="bg-white rounded-lg shadow p-6">
@@ -20,28 +20,77 @@
             <p v-if="profile.jobTitle" class="text-gray-600">{{ profile.jobTitle }}</p>
           </div>
         </div>
-
-        <div class="space-y-3">
-          <div class="flex">
-            <span class="w-32 text-gray-600">E-Mail:</span>
-            <span>{{ profile.email || '—' }}</span>
+        <div v-if="!isEditing">
+          <div class="space-y-3">
+            <ProfileField label="E-Mail" :value="profile.email" />
+            <ProfileField label="Name" :value="displayName" />
+            <ProfileField label="Job-Titel" :value="profile.jobTitle" />
+            <ProfileField label="Standort" :value="profile.location" />
           </div>
-
-          <div class="flex">
-            <span class="w-32 text-gray-600">Name:</span>
-            <span>{{ displayName }}</span>
-          </div>
-
-          <div class="flex">
-            <span class="w-32 text-gray-600">Job-Titel:</span>
-            <span>{{ profile.jobTitle || '—' }}</span>
-          </div>
-
-          <div class="flex">
-            <span class="w-32 text-gray-600">Standort:</span>
-            <span>{{ profile.location || '—' }}</span>
+          <div class="mt-6">
+            <button class="btn btn-primary" @click="startEdit">{{ $t('general.btn.edit') }}</button>
           </div>
         </div>
+
+        <div v-else class="bg-white rounded-lg shadow p-6">
+          <h2 class="text-xl font-semibold mb-6">{{ $t('profile.editProfile') }}</h2>
+          <div class="space-y-4">
+
+            <!-- Vorname -->
+            <div>
+              <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">
+                Vorname
+              </label>
+              <input id="firstName" v-model="editData.firstName" type="text"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Max" />
+            </div>
+
+            <!-- Nachname -->
+            <div>
+              <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">
+                Nachname
+              </label>
+              <input id="lastName" v-model="editData.lastName" type="text"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Mustermann" />
+            </div>
+
+            <!-- Job-Titel -->
+            <div>
+              <label for="jobTitle" class="block text-sm font-medium text-gray-700 mb-1">
+                Job-Titel
+              </label>
+              <input id="jobTitle" v-model="editData.jobTitle" type="text"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="z.B. Senior Developer" />
+            </div>
+
+            <!-- Standort -->
+            <div>
+              <label for="location" class="block text-sm font-medium text-gray-700 mb-1">
+                Standort
+              </label>
+              <input id="location" v-model="editData.location" type="text"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus: outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="z.B. München" />
+            </div>
+
+          </div>
+
+          <div class="flex gap-3 mt-6">
+            <button @click="save" :disabled="isSaving" class="btn btn-primary">
+              <span v-if="isSaving"
+                class="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></span>
+              <span>{{ isSavingLabel }}</span>
+            </button>
+            <button @click="cancel" class="btn btn-secondary">
+              {{ $t('general.btn.cancel') }}
+            </button>
+          </div>
+
+        </div>
+
 
       </div>
 
@@ -52,10 +101,26 @@
 <script>
 import { useProfileStore } from '@/stores/user/profile';
 import { useAuthStore } from '@/stores/auth/auth';
+import { useToastStore } from '@/stores/toast/toast';
+import ProfileField from './ProfileField.vue';
+import { useI18n } from 'vue-i18n';
 
 export default {
   name: 'Profile',
-
+  components: {
+    ProfileField
+  },
+  setup() {
+    const { t, locale } = useI18n();
+    return { t, locale };
+  },
+  data() {
+    return {
+      isEditing: false,
+      isSaving: false,
+      editData: {}
+    }
+  },
   computed: {
     profileStore() {
       return useProfileStore();
@@ -63,20 +128,60 @@ export default {
     authStore() {
       return useAuthStore();
     },
+    toast() {
+      return useToastStore();
+    },
     loading() {
       return this.profileStore.loading;
     },
-
     profile() {
       return this.profileStore.profile || {};
     },
-
+    isSavingLabel() {
+      return this.isSaving ? this.$t('general.btn.ui.saving') : this.$t('general.btn.ui.save');
+    },
     displayName() {
       const first = this.profile.firstName || '';
       const last = this.profile.lastName || '';
       const name = `${first} ${last}`.trim();
       return name || 'Unbekannt';
     },
+  },
+  methods: {
+    startEdit() {
+      this.editData = {
+        firstName: this.profile.firstName || '',
+        lastName: this.profile.lastName || '',
+        jobTitle: this.profile.jobTitle || '',
+        location: this.profile.location || ''
+      };
+      this.isEditing = true;
+    },
+    cancel() {
+      this.isEditing = false;
+      this.isSaving = false;
+      this.editData = {};
+    },
+    async save() {
+      this.isSaving = true;
+      const result = await this.profileStore.updateProfile(
+        this.authStore.user.uid,
+        this.editData
+      );
+
+      this.isSaving = false;
+
+      if (result.success) {
+        this.isEditing = false;
+        this.toast.success(this.t('toast.profileSuccess'));
+        this.editData = {};
+        console.log('Profil erfolgreich gespeichert!');
+      } else {
+        // Error handling
+        this.toast.error(this.t('toast.profileError'));
+        console.log('Fehler beim Speichern.  Bitte versuche es erneut.');
+      }
+    }
   },
 
   mounted() {
