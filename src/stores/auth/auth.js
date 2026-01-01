@@ -20,15 +20,18 @@ export const useAuthStore = defineStore('auth', {
 
   actions: {
     init() {
-      if (this.authReady) return;
+      if (this.authReady) return Promise.resolve();
 
-      onAuthStateChanged(auth, async (user) => {
-        this.user = user;
-        if (user) {
-          console.log('🔐 User eingeloggt:', user.uid);
-          await this.createUserDocument(user);
-        }
-        this.authReady = true;
+      return new Promise((resolve) => {
+        onAuthStateChanged(auth, async (user) => {
+          this.user = user;
+          if (user) {
+            console.log('🔐 User eingeloggt:', user.uid);
+            await this.createUserDocument(user);
+          }
+          this.authReady = true;
+          resolve(user);
+        });
       });
     },
 
@@ -39,12 +42,12 @@ export const useAuthStore = defineStore('auth', {
       if (!userSnap.exists()) {
         console.log(user);
         await setDoc(userRef, {
-          uid: user.uid,                    
+          uid: user.uid,
           email: user.email,
-          firstName: '',                   
-          lastName: '',                    
-          jobTitle: '',                     
-          location: '',                    
+          firstName: '',
+          lastName: '',
+          jobTitle: '',
+          location: '',
           createdAt: serverTimestamp(),
           updatedAt: serverTimestamp()
         });

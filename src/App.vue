@@ -51,11 +51,17 @@ export default {
           this.favoritesStore.clearFavorites();
         }
       },
-      immediate: true
+      immediate: false
     }
   },
-  mounted() {
-    this.authStore.init();
+  async mounted() {
+    await this.authStore.init();
+
+    if (this.authStore.isAuthenticated) {
+      console.log('Initial load:  User ist eingeloggt');
+      this.favoritesStore.loadFavorites();
+    }
   }
+
 }
 </script>
