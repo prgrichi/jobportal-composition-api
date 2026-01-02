@@ -57,7 +57,7 @@ import { useAuthStore } from '@/stores/auth/auth';
 import { useModalStore } from '@/stores/ui/modal';
 
 export default {
-  name: 'JobSingle',
+  name: 'JobCard',
   props: {
     job: {
       type: Object,
