@@ -19,20 +19,20 @@
           <DialogPanel class="bg-background rounded-lg p-6 max-w-md w-full">
 
             <DialogTitle class="text-xl font-bold mb-4">
-              Anmeldung erforderlich
+              {{ $t('modal.authRequired.title') }}
             </DialogTitle>
 
             <DialogDescription class="text-muted-foreground mb-6">
-              Melde dich an, um alle Funktionen zu nutzen.
+              {{ $t('modal.authRequired.message') }}
             </DialogDescription>
 
             <div class="flex gap-4">
               <button @click="goToLogin" class="btn btn-primary flex-1">
-                Jetzt anmelden
+                {{ $t('general.btn.signInNow') }}
               </button>
 
               <button @click="onClose" class="btn btn-secondary">
-                Abbrechen
+                {{ $t('general.btn.cancel') }}
               </button>
             </div>
 

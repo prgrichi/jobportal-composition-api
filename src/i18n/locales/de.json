@@ -103,6 +103,11 @@
       "headline": "Filter",
       "inputPlaceholder": "Job, Firma oder Stichwort...",
       "jobsFound": "Keine Jobs gefunden | 1 Job gefunden | {n} Jobs gefunden",
+      "allLevels": "Alle Erfahrungsstufen",
+      "allLocations": "Alle Standorte",
+      "searchLabel": "Jobsuche Eingabefeld",
+      "locationLabel": "Jobstandort auswählen",
+      "levelLabel": "Erfahrungsstufe auswählen",
       "btn": {
         "reset": "Filter zurücksetzen"
       }

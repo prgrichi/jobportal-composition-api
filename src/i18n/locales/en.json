@@ -50,7 +50,7 @@
   },
   "threejobsteaser": {
     "title": "Latest Jobs",
-    "subtitle": "3 current frontend & web roles.",
+    "subtitle": "Discover new career opportunities daily.",
     "viewAll": "All jobs",
     "placeholder": {
       "locked": "Locked",
@@ -82,7 +82,7 @@
     "emailInvalid": "Invalid email address",
     "passwordRequired": "Password is required",
     "paswordLength": "Password must be at least 6 characters long",
-    "logoutError": "Error logging out. Please try again.",
+    "logoutError": "Error logging out.  Please try again.",
     "loginError": "Error logging in. Please check your credentials.",
     "registerError": "Error during registration. Please try again.",
     "passwordMismatch": "Passwords do not match.",
@@ -94,15 +94,23 @@
     "loginSuccess": "Successfully logged in.",
     "logoutSuccess": "Successfully logged out.",
     "registerSuccess": "Account created successfully.",
-    "profileSuccess": "Profile saved successfully!",
+    "profileSuccess": "Profile saved successfully! ",
     "profileError": "Error saving profile. Please try again."
   },
   "jobs": {
     "headline": "Available Jobs",
     "filter": {
       "headline": "Filter",
-      "inputPlaceholder": "Job, company or keyword...",
-      "jobsFound": "No jobs found | 1 job found | {n} jobs found"
+      "inputPlaceholder": "Job, company or keyword.. .",
+      "jobsFound": "No jobs found | 1 job found | {n} jobs found",
+      "allLevels": "All experience levels",
+      "allLocations": "All locations",
+      "searchLabel": "Job search input field",
+      "locationLabel": "Select job location",
+      "levelLabel": "Select experience level",
+      "btn": {
+        "reset": "Reset filters"
+      }
     },
     "jobsNotFound": "No jobs found.",
     "ui": {
@@ -113,15 +121,16 @@
     "details": "Details",
     "favorites": {
       "title": "My Jobs",
-      "count": "No saved jobs yet | {n} saved job | {n} saved jobs",
+      "count": "No saved jobs yet | Saved jobs: {n} | Saved jobs: {n}",
       "favoritesLoading": "Loading your saved jobs...",
-      "noFavoritesTitle": "Nothing saved yet",
-      "noFavoritesText": "Bookmark jobs to view them here later."
+      "noFavoritesTitle": "You haven't saved any jobs yet.",
+      "noFavoritesText": "Save jobs to find them again later."
     }
   },
   "profile": {
     "title": "Profile",
     "subtitle": "Manage your personal information",
+    "emptyField": "Not specified",
     "editProfile": "Edit Profile"
   },
   "modal": {

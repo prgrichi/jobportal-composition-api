@@ -36,8 +36,8 @@
 │   │   │   ├── JobList.vue
 │   │   │   ├── Jobs.vue
 │   │   │   ├── JobsFavorite.vue
-│   │   │   ├── JobSingle.vue
-│   │   │   └── JobSkeleton.vue
+│   │   │   ├── JobCard.vue
+│   │   │   └── JobCardSkeleton.vue
 │   │   ├── modal
 │   │   │   └── AuthRequiredModal.vue
 │   │   ├── profile
