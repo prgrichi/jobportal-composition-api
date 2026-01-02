@@ -1,0 +1,90 @@
+.
+├── firebase.json
+├── icons
+│   └── pinia.svg
+├── index.html
+├── jsconfig.json
+├── package-lock.json
+├── package.json
+├── public
+│   └── favicon.ico
+├── README.md
+├── scripts
+│   ├── import.js
+│   ├── jobs.json
+│   ├── package-lock.json
+│   ├── package.json
+│   └── serviceAccountKey.json
+├── src
+│   ├── App.vue
+│   ├── components
+│   │   ├── auth
+│   │   │   ├── AuthForm.vue
+│   │   │   ├── LoginForm.vue
+│   │   │   └── RegisterForm.vue
+│   │   ├── debug
+│   │   │   └── DebugBox.vue
+│   │   ├── home
+│   │   │   ├── HeroSection.vue
+│   │   │   ├── InfoStripSection.vue
+│   │   │   ├── TechStackSection.vue
+│   │   │   ├── ThreeJobsTeaser.vue
+│   │   │   ├── ThreeJobsTeaserPlaceholder.vue
+│   │   │   └── WhySection.vue
+│   │   ├── jobs
+│   │   │   ├── JobFilter.vue
+│   │   │   ├── JobList.vue
+│   │   │   ├── Jobs.vue
+│   │   │   ├── JobsFavorite.vue
+│   │   │   ├── JobSingle.vue
+│   │   │   └── JobSkeleton.vue
+│   │   ├── modal
+│   │   │   └── AuthRequiredModal.vue
+│   │   ├── profile
+│   │   │   ├── Profile.vue
+│   │   │   └── ProfileField.vue
+│   │   └── ui
+│   │       ├── Icon.vue
+│   │       └── ToastContainer.vue
+│   ├── config
+│   │   └── firebase.js
+│   ├── i18n
+│   │   ├── index.js
+│   │   └── locales
+│   │       ├── de.json
+│   │       └── en.json
+│   ├── layouts
+│   │   ├── TheFooter.vue
+│   │   └── TheHeader.vue
+│   ├── main.css
+│   ├── main.js
+│   ├── pages
+│   │   ├── FavoriteJobsPage.vue
+│   │   ├── HomePage.vue
+│   │   ├── JobsDetailPage.vue
+│   │   ├── JobsPage.vue
+│   │   ├── LoginPage.vue
+│   │   ├── NotFoundPage.vue
+│   │   ├── ProfilePage.vue
+│   │   └── RegisterPage.vue
+│   ├── router
+│   │   └── index.js
+│   ├── stores
+│   │   ├── auth
+│   │   │   └── auth.js
+│   │   ├── jobs
+│   │   │   ├── favorites.js
+│   │   │   └── jobs.js
+│   │   ├── toast
+│   │   │   └── toast.js
+│   │   ├── ui
+│   │   │   ├── modal.js
+│   │   │   └── theme.js
+│   │   └── user
+│   │       └── profile.js
+│   └── ui.css
+├── structure.txt
+├── tailwind.config.js
+└── vite.config.js
+
+25 directories, 63 files
