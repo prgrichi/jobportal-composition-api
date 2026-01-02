@@ -16,7 +16,7 @@
     <div class="mt-6 grid gap-4 grid-cols-1 md:grid-cols-2">
 
       <template v-if="jobStore.isLoading">
-        <JobSkeleton v-for="n in 6" :key="`sk-${n}`" />
+        <JobCardSkeleton v-for="n in 6" :key="`sk-${n}`" />
       </template>
 
       <template v-if="jobStore.error">
@@ -26,12 +26,12 @@
       </template>
 
       <template v-else>
-        <JobSingle v-for="job in jobStore.filteredJobs" :key="job.id" :job="job" />
+        <JobCard v-for="job in jobStore.filteredJobs" :key="job.id" :job="job" />
       </template>
 
 
       <template v-if="jobStore.isLoadingMore">
-        <JobSkeleton v-for="n in 3" :key="`sk-${n}`" />
+        <JobCardSkeleton v-for="n in 3" :key="`sk-${n}`" />
       </template>
 
     </div>
@@ -61,8 +61,8 @@
 
 <script>
 import { useJobStore } from '@/stores/jobs/jobs';
-import JobSingle from './JobSingle.vue';
-import JobSkeleton from './JobSkeleton.vue';
+import JobCard from './JobCard.vue';
+import JobCardSkeleton from './JobCardSkeleton.vue';
 import { useI18n } from 'vue-i18n';
 
 // DEBUG
@@ -75,8 +75,8 @@ export default {
     return { t, locale };
   },
   components: {
-    JobSingle,
-    JobSkeleton,
+    JobCard,
+    JobCardSkeleton,
     DebugBox
   },
   methods: {

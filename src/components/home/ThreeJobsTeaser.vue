@@ -21,11 +21,11 @@
       </div>
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <template v-if="!authStore.authReady || jobStore.isLoading">
-          <JobSkeleton v-for="n in 3" :key="`sk-${n}`" />
+          <JobCardSkeleton v-for="n in 3" :key="`sk-${n}`" />
         </template>
 
         <!-- <template v-if="authStore.isAuthenticated"> -->
-          <JobSingle v-for="job in jobStore.jobs" :key="job.id" :job="job" />
+          <JobCard v-for="job in jobStore.jobs" :key="job.id" :job="job" />
         <!-- </template> -->
 
         <template v-if="jobStore.error">
@@ -52,15 +52,15 @@
 <script>
 import { useJobStore } from '@/stores/jobs/jobs';
 import { useAuthStore } from '@/stores/auth/auth';
-import JobSingle from '@/components/jobs/JobSingle.vue';
-import JobSkeleton from "@/components/jobs/JobSkeleton.vue";
+import JobCard from '@/components/jobs/JobCard.vue';
+import JobCardSkeleton from "@/components/jobs/JobCardSkeleton.vue";
 import ThreeJobsTeaserPlaceholder from "@/components/home/ThreeJobsTeaserPlaceholder.vue";
 
 export default {
   name: 'ThreeJobsTeaser',
   components: {
-    JobSingle,
-    JobSkeleton,
+    JobCard,
+    JobCardSkeleton,
     ThreeJobsTeaserPlaceholder
   },
   computed: {

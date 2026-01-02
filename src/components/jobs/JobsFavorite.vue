@@ -16,7 +16,7 @@
 
       <!-- Empty State -->
       <div v-else-if="favoritesFoundCount === 0" class="text-center py-12">
-        <Icon name="Star" type="outline" icon-class="h-16 w-16 bg-neutral-300 mx-auto mb-4" />
+        <Icon name="Star" type="outline" icon-class="h-16 w-16 mx-auto mb-4" />
         <h3 class="text-lg font-semibold text-foreground mb-2">
           {{ $t('jobs.favorites.noFavoritesTitle') }}
         </h3>
@@ -29,7 +29,7 @@
       </div>
 
       <div v-else class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <JobSingle v-for="job in favoriteJobs" :key="job.id" :job="job" />
+        <JobCard v-for="job in favoriteJobs" :key="job.id" :job="job" />
       </div>
     </div>
   </section>
@@ -37,14 +37,14 @@
 
 <script>
 import { useFavoritesStore } from '@/stores/jobs/favorites';
-import JobSingle from '@/components/jobs/JobSingle.vue';
+import JobCard from '@/components/jobs/JobCard.vue';
 import Icon from '@/components/ui/Icon.vue';
 
 export default {
   name: 'FavoriteJobsPage',
 
   components: {
-    JobSingle,
+    JobCard,
     Icon
   },
 
