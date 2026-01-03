@@ -13,6 +13,7 @@
       "loadJobs": "Load more jobs",
       "apply": "Apply",
       "save": "Save",
+      "saved": "Saved",
       "jobSearch": "Browse jobs",
       "edit": "Edit",
       "cancel": "Cancel",
@@ -64,17 +65,17 @@
       "confirmPassword": "Confirm password",
       "placeholder": {
         "email": "Enter your email",
-        "password": "Enter your password",
+        "password":  "Enter your password",
         "confirmPassword": "Confirm your password"
       }
     },
-    "login": {
+    "login":  {
       "title": "Login",
       "subTitle": "Sign in to view saved jobs."
     },
     "register": {
       "title": "Register",
-      "subTitle": "Create an account to save jobs."
+      "subTitle":  "Create an account to save jobs."
     }
   },
   "errors": {
@@ -82,7 +83,7 @@
     "emailInvalid": "Invalid email address",
     "passwordRequired": "Password is required",
     "paswordLength": "Password must be at least 6 characters long",
-    "logoutError": "Error logging out.  Please try again.",
+    "logoutError": "Error logging out. Please try again.",
     "loginError": "Error logging in. Please check your credentials.",
     "registerError": "Error during registration. Please try again.",
     "passwordMismatch": "Passwords do not match.",
@@ -114,7 +115,7 @@
     },
     "jobsNotFound": "No jobs found.",
     "ui": {
-      "loadMore": "Load more jobs",
+      "loadMore":  "Load more jobs",
       "loading": "Loading..."
     },
     "allLoaded": "All {count} jobs loaded",
@@ -122,16 +123,16 @@
     "favorites": {
       "title": "My Jobs",
       "count": "No saved jobs yet | Saved jobs: {n} | Saved jobs: {n}",
-      "favoritesLoading": "Loading your saved jobs...",
+      "favoritesLoading": "Loading your saved jobs.. .",
       "noFavoritesTitle": "You haven't saved any jobs yet.",
       "noFavoritesText": "Save jobs to find them again later."
     }
   },
   "profile": {
-    "title": "Profile",
-    "subtitle": "Manage your personal information",
+    "title":  "Profile",
+    "subtitle":  "Manage your personal information",
     "emptyField": "Not specified",
-    "editProfile": "Edit Profile"
+    "editProfile":  "Edit Profile"
   },
   "modal": {
     "authRequired": {
@@ -147,15 +148,15 @@
   "why": {
     "label": "Why this portal?",
     "title": "Reduced to the essentials",
-    "description": "This job portal is intentionally kept lean: find, filter, and save jobs quickly – without ads, popups, or visual noise.  The focus is on structure, user guidance, and clear content.",
+    "description": "This job portal is intentionally kept lean: find, filter, and save jobs quickly – without ads, popups, or visual noise. The focus is on structure, user guidance, and clear content.",
     "features": {
       "relevantJobs": {
         "title": "Relevant positions",
         "description": "Selected jobs from internal teams – no project acquisition or agency offers."
       },
-      "remoteFlexible": {
+      "remoteFlexible":  {
         "title": "Remote & flexible",
-        "description": "Remote and hybrid options are clearly marked."
+        "description":  "Remote and hybrid options are clearly marked."
       },
       "noDistraction": {
         "title": "No distractions",
@@ -165,7 +166,7 @@
   },
   "disclaimer": {
     "text": "This job portal is a",
-    "projectType": "practice and portfolio project",
+    "projectType":  "practice and portfolio project",
     "demonstrates": "It demonstrates the use of modern frontend technologies like",
     "tech": {
       "vue": "Vue 3",
@@ -176,12 +177,12 @@
     "inRealisticApp": "in a realistic application."
   },
   "techStack": {
-    "label": "Tech Stack",
+    "label":  "Tech Stack",
     "title": "Technologies behind the project",
     "description": "This job portal is designed as a practical portfolio project.  The stack focuses on maintainability, structure, and modern frontend workflows.",
     "items": {
       "vue": {
-        "title": "Vue 3",
+        "title":  "Vue 3",
         "description": "Component-based architecture for a clear UI structure."
       },
       "pinia": {
@@ -192,7 +193,7 @@
         "title": "Vue Router",
         "description": "Client-side routing with guards for protected areas."
       },
-      "firebase": {
+      "firebase":  {
         "title": "Firebase",
         "description": "Authentication and data storage via Firestore."
       },

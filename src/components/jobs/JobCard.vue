@@ -84,7 +84,7 @@ export default {
 
   data() {
     return {
-      isAnimating: false  // For star animation on toggle
+      isAnimating: false
     };
   },
 

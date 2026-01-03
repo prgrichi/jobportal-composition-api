@@ -62,6 +62,7 @@ export const useFavoritesStore = defineStore('favorites', {
         return;
       }
 
+      this.loading = true;
       try {
         const favoriteRef = doc(db, 'users', userId, 'favorites', job.id.toString());
         const snapshot = await getDoc(favoriteRef);
@@ -75,6 +76,9 @@ export const useFavoritesStore = defineStore('favorites', {
       } catch (error) {
         this.toast.error('Fehler beim Speichern');
         console.error('❌ Fehler beim Toggle:', error);
+      }
+      finally {
+        this.loading = false;
       }
     },
 

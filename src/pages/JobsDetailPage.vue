@@ -23,7 +23,6 @@
         <!-- Hero + Sidebar -->
         <div class="grid gap-6 lg:grid-cols-12">
           <JobDetailHero :job="job" />
-
           <JobDetailSidebar :job="job" :remote-label="remoteLabel" :created-at="createdAtDE" @apply="handleApply" />
         </div>
 
@@ -31,7 +30,8 @@
         <JobDetailPanels :job="job" />
 
         <!-- Bottom CTA -->
-        <JobDetailCTA @save="handleSave" @apply="handleApply" />
+        <JobDetailCTA @save="handleSave" :job="job" :is-favorited="isFavorited"
+          @apply="handleApply" />
 
       </section>
     </div>
@@ -42,6 +42,7 @@
 <script>
 import { useJobStore } from '@/stores/jobs/jobs';
 import { useAuthStore } from '@/stores/auth/auth';
+import { useFavoritesStore } from '@/stores/jobs/favorites';
 import JobDetailHeader from '@/components/jobs/detail/JobDetailHeader.vue';
 import JobDetailHero from '@/components/jobs/detail/JobDetailHero.vue';
 import JobDetailSidebar from '@/components/jobs/detail/JobDetailSidebar.vue';
@@ -65,13 +66,15 @@ export default {
       required: true
     }
   },
-
   computed: {
     jobStore() {
       return useJobStore();
     },
     authStore() {
       return useAuthStore();
+    },
+    favoritesStore() {
+      return useFavoritesStore();
     },
     job() {
       return this.jobStore.singleJob;
@@ -97,7 +100,6 @@ export default {
       if (previousRoute === '/jobs') {
         return { name: 'jobs' };
       }
-
       return { name: 'home' };
     }
   },
@@ -115,8 +117,12 @@ export default {
 
     handleSave() {
       console.log('Save clicked for job:', this.job.id);
-      // TODO: Implement save to favorites
-      // z.B. this. favoritesStore.toggleFavorite(this.job. id);
+
+      this.favoritesStore.toggleFavorite(this.job);
+      // this.isAnimating = true;
+      // setTimeout(() => {
+      //   this.isAnimating = false;
+      // }, 500);
     }
   }
 }

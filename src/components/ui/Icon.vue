@@ -13,7 +13,8 @@ import {
   Bars3Icon,
   XMarkIcon,
   SunIcon,
-  MoonIcon
+  MoonIcon,
+  CheckIcon,
 } from '@heroicons/vue/24/outline';
 
 // Heroicons Solid
@@ -31,7 +32,8 @@ const ICONS = {
     Bars3: Bars3Icon,
     XMark: XMarkIcon,
     Sun: SunIcon,
-    Moon: MoonIcon
+    Moon: MoonIcon,
+    Check: CheckIcon,
   },
   solid: {
     Star: StarIconSolid,
