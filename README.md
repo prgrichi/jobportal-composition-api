@@ -119,3 +119,12 @@ npm run build
 - Breakpoints: `sm`, `md`, `lg`, `xl`
 - Touch-friendly UI elements
 - Optimized for various screen sizes
+
+# Jobportal
+
+![Deploy Status](https://github.com/prgrichi/jobportal/actions/workflows/deploy.yml/badge.svg)
+
+🚀 Automatisch deployed auf Firebase Hosting! 
+
+## Live Demo
+https://jobportal-8a79b.web.app/
