@@ -143,7 +143,6 @@ export default {
   data() {
     return {
       mobileMenuOpen: false,  // Mobile menu toggle state
-      darkMode: false,
     };
   },
 

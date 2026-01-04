@@ -3,7 +3,7 @@
 
     <!-- Loading State -->
     <div v-if="jobStore.isLoading" class="w-full block text-center mt-6">
-      {{ general.loading }}
+      {{ $t('general.loading') }}
     </div>
 
     <!-- Error State -->
@@ -30,8 +30,10 @@
         <JobDetailPanels :job="job" />
 
         <!-- Bottom CTA -->
-        <JobDetailCTA @save="handleSave" :job="job" :is-favorited="isFavorited"
-          @apply="handleApply" />
+        <JobDetailCTA @save="handleSave" @apply="handleApply" :job="job" />
+
+        <JobApplicationModal :is-open="modalStore.jobApplicationModalOpen" :job-id="job.id"
+          @close="modalStore.hideJobApplication" />
 
       </section>
     </div>
@@ -43,11 +45,13 @@
 import { useJobStore } from '@/stores/jobs/jobs';
 import { useAuthStore } from '@/stores/auth/auth';
 import { useFavoritesStore } from '@/stores/jobs/favorites';
+import { useModalStore } from '@/stores/ui/modal';
 import JobDetailHeader from '@/components/jobs/detail/JobDetailHeader.vue';
 import JobDetailHero from '@/components/jobs/detail/JobDetailHero.vue';
 import JobDetailSidebar from '@/components/jobs/detail/JobDetailSidebar.vue';
 import JobDetailPanels from '@/components/jobs/detail/JobDetailPanels.vue';
 import JobDetailCTA from '@/components/jobs/detail/JobDetailCTA.vue';
+import JobApplicationModal from '@/components/modal/JobApplicationModal.vue';
 
 export default {
   name: 'JobsDetailPage',
@@ -57,7 +61,8 @@ export default {
     JobDetailHero,
     JobDetailSidebar,
     JobDetailPanels,
-    JobDetailCTA
+    JobDetailCTA,
+    JobApplicationModal
   },
 
   props: {
@@ -75,6 +80,9 @@ export default {
     },
     favoritesStore() {
       return useFavoritesStore();
+    },
+    modalStore() {
+      return useModalStore();
     },
     job() {
       return this.jobStore.singleJob;
@@ -111,18 +119,19 @@ export default {
   methods: {
     handleApply() {
       console.log('Apply clicked for job:', this.job.id);
-      // TODO: Implement apply logic
-      // z.B. Modal öffnen, zu Bewerbungsformular navigieren, etc.
+
+      if (!this.authStore.isAuthenticated) {
+        this.modalStore.showAuthRequired();
+        return;
+      }
+
+      this.modalStore.showJobApplication(this.job.id);
     },
 
     handleSave() {
       console.log('Save clicked for job:', this.job.id);
 
       this.favoritesStore.toggleFavorite(this.job);
-      // this.isAnimating = true;
-      // setTimeout(() => {
-      //   this.isAnimating = false;
-      // }, 500);
     }
   }
 }

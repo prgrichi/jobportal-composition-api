@@ -1,21 +1,18 @@
 <template>
   <BaseModal :isOpen="isOpen" @close="onClose">
     <template #title>
-      {{ $t('modal.authRequired.title') }}
+      Bewerbung
     </template>
 
     <template #description>
-      {{ $t('modal.authRequired.message') }}
+      <p>Hier bewerben Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum, aperiam, consequatur labore
+        ducimus
+        minus accusamus officia exercitationem veniam possimus numquam ab corrupti minima illum odio ut adipisci nihil
+        harum aliquam!</p>
     </template>
 
     <template #footer>
-      <button @click="goToLogin" class="btn btn-primary flex-1">
-        {{ $t('general.btn.signInNow') }}
-      </button>
-
-      <button @click="onClose" class="btn btn-secondary">
-        {{ $t('general.btn.cancel') }}
-      </button>
+      footer
     </template>
   </BaseModal>
 </template>
@@ -24,7 +21,7 @@
 import BaseModal from './BaseModal.vue';
 
 export default {
-  name: 'AuthRequiredModal',
+  name: 'JobApplicationModal',
 
   components: {
     BaseModal
@@ -46,10 +43,10 @@ export default {
     },
 
     // Redirect to login page
-    goToLogin() {
-      this.$emit('close');
-      this.$router.push('/login');
-    }
+    // goToLogin() {
+    //   this.$emit('close');
+    //   this.$router.push('/login');
+    // }
   }
 };
 </script>

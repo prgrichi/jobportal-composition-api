@@ -2,7 +2,8 @@ import { defineStore } from 'pinia';
 
 export const useModalStore = defineStore('modal', {
   state: () => ({
-    authRequiredModalOpen: false
+    authRequiredModalOpen: false,
+    jobApplicationModalOpen: false
   }),
 
   actions: {
@@ -12,6 +13,16 @@ export const useModalStore = defineStore('modal', {
 
     hideAuthRequired() {
       this.authRequiredModalOpen = false;
+    },
+
+    showJobApplication(jobId) {
+      // this.selectedJobId = jobId;
+      this.jobApplicationModalOpen = true;
+    },
+
+    hideJobApplication() {
+      this.jobApplicationModalOpen = false;
+      // this.selectedJobId = null;
     }
   }
 });
