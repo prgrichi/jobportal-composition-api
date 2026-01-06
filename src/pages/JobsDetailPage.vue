@@ -32,7 +32,7 @@
         <!-- Bottom CTA -->
         <JobDetailCTA @save="handleSave" @apply="handleApply" :job="job" />
 
-        <JobApplicationModal :is-open="modalStore.jobApplicationModalOpen" :job-id="job.id"
+        <JobApplicationModal :is-open="modalStore.jobApplicationModalOpen" :jobTitle="job.title"
           @close="modalStore.hideJobApplication" />
 
       </section>
