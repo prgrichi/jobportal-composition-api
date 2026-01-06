@@ -1,5 +1,5 @@
 <template>
-  <BaseModal :isOpen="isOpen" @close="onClose">
+  <BaseModal :isOpen="isOpen" size="md" @close="onClose">
     <template #title>
       {{ $t('modal.authRequired.title') }}
     </template>
