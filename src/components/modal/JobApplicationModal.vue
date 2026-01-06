@@ -78,7 +78,6 @@
           </ErrorMessage>
         </div>
 
-
         <!-- Submit Button -->
         <!-- <button type="submit" :disabled="isLoading" class="btn btn-primary w-full"> -->
         <button type="submit" class="btn btn-primary w-full">
@@ -92,7 +91,7 @@
 
     </template>
     <template #footer>
-      
+
     </template>
   </BaseModal>
 </template>
@@ -100,7 +99,7 @@
 <script>
 import BaseModal from './BaseModal.vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import { jobApplicationSchema } from '@/schemas';
+import { createJobApplicationSchema } from '@/schemas';
 
 export default {
   name: 'JobApplicationModal',
@@ -109,11 +108,6 @@ export default {
     Form,
     Field,
     ErrorMessage
-  },
-  data() {
-    return {
-      schema: jobApplicationSchema
-    }
   },
   props: {
     isOpen: {
@@ -124,6 +118,11 @@ export default {
 
   emits: ['close'],
 
+  computed: {
+    schema() {
+      return createJobApplicationSchema();
+    }
+  },
   methods: {
     // Close modal
     onClose() {
@@ -131,15 +130,7 @@ export default {
     },
     onSubmit(values) {
       console.log('Form submitted with values:', values);
-      // Here you would typically handle the form submission,
-      // e.g., send the data to your backend or Firebase.
-      // After submission, you might want to close the modal:
     },
-    // Redirect to login page
-    // goToLogin() {
-    //   this.$emit('close');
-    //   this.$router.push('/login');
-    // }
   }
 };
 </script>

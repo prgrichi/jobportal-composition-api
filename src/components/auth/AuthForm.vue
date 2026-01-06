@@ -2,15 +2,14 @@
   <div class="">
 
     <!-- Auth Form (Login/Register) -->
-    <Form @submit="onSubmit" :validation-schema="schema" class="max-w-md mx-auto rounded-lg">
+    <Form @submit="onSubmit" novalidate :validation-schema="schema" class="max-w-md mx-auto rounded-lg">
 
       <!-- Email Field -->
       <div class="mb-4">
         <label for="email" class="block text-sm font-medium text-muted-foreground mb-1">
           {{ $t('auth.general.email') }}
         </label>
-        <Field as="input" name="email" type="email" id="email"
-        autocomplete="email"
+        <Field as="input" name="email" type="email" id="email" autocomplete="email"
           class="w-full border bg-background border-border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           :placeholder="$t('auth.general.placeholder.email')" />
         <ErrorMessage name="email" v-slot="{ message }">
@@ -58,12 +57,12 @@
 
 <script>
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import * as yup from 'yup';
 import { useToastStore } from '@/stores/toast/toast';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/config/firebase';
 import { useAuthStore } from '@/stores/auth/auth';
 import { useI18n } from 'vue-i18n';
+import { createLoginSchema, createRegisterSchema } from '@/schemas';
 
 export default {
   name: 'AuthForm',
@@ -88,27 +87,8 @@ export default {
   },
 
   data() {
-    // Base Validation Schema (Email + Password)
-    const baseSchema = {
-      email: yup.string()
-        .required(this.t('errors.emailRequired'))
-        .email(this.t('errors.emailInvalid')),
-      password: yup.string()
-        .required(this.t('errors.passwordRequired'))
-        .min(6, this.t('errors.paswordLength')),
-    };
-
-    // Register Schema (Base + Confirm Password)
-    const registerSchema = {
-      ...baseSchema,
-      confirmPassword: yup.string()
-        .oneOf([yup.ref('password'), null], this.t('errors.passwordMismatch'))
-        .required(this.t('errors.confirmPassword')),
-    };
-
     return {
       isLoading: false,
-      schema: yup.object(this.mode === 'register' ? registerSchema : baseSchema),
     };
   },
 
@@ -121,6 +101,9 @@ export default {
     },
     passwordAutocomplete() {
       return this.mode === 'register' ? 'new-password' : 'current-password';
+    },
+    schema() {
+      return this.mode === 'login' ? createLoginSchema() : createRegisterSchema();
     },
     // Dynamic Submit Button Label
     submitLabel() {
