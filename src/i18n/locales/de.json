@@ -131,6 +131,23 @@
       "ctaText1": "Interessiert?",
       "ctaText2": "Bewerbe dich direkt oder speichere den Job für später.",
       "backLinkText": "Zurück zu Jobs"
+    },
+    "application": {
+      "general": {
+        "title": "Bewerbung als {jobTitle}",
+        "copy": "Bewirb dich jetzt und werde Teil unseres Teams! Fülle einfach das Formular aus und lade deinen Lebenslauf hoch. Wir melden uns schnellstmöglich bei dir.",
+        "salary": "Gehaltsvorstellung (EUR)",
+        "firstName": "Vorname",
+        "lastName": "Nachname",
+        "email": "E-Mail",
+        "fileUpload": "Lebenslauf hochladen (pdf)",
+        "placeholder": {
+          "salary": "z.B. 55.000",
+          "firstName": "Vorname",
+          "lastName": "Nachname",
+          "email": "E-Mail"
+        }
+      }
     }
   },
   "profile": {
