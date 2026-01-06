@@ -82,14 +82,19 @@
     "emailRequired": "E-Mail ist erforderlich",
     "emailInvalid": "Ungültige E-Mail-Adresse",
     "passwordRequired": "Passwort ist erforderlich",
-    "paswordLength": "Passwort muss mindestens 6 Zeichen lang sein",
+    "passwordLength": "Passwort muss mindestens 6 Zeichen lang sein",
     "logoutError": "Fehler beim Ausloggen. Bitte versuche es erneut.",
     "loginError": "Fehler beim Einloggen. Bitte überprüfe deine Anmeldedaten.",
     "registerError": "Fehler bei der Registrierung. Bitte versuche es erneut.",
     "passwordMismatch": "Passwörter stimmen nicht überein.",
-    "confirmPassword": "Bitte bestätige dein Passwort",
+    "confirmPassword": "Bitte bestätige das Passwort",
     "invalidCredentials": "Die Zugangsdaten sind ungültig.",
-    "emailAlreadyInUse": "Die E-Mail-Adresse wird bereits verwendet."
+    "emailAlreadyInUse": "Die E-Mail-Adresse wird bereits verwendet.",
+    "firstNameRequired": "Vorname ist erforderlich",
+    "lastNameRequired": "Nachname ist erforderlich",
+    "cvRequired": "Lebenslauf ist erforderlich",
+    "fileSizeMax": "Datei darf maximal {size}MB groß sein",
+    "fileTypeAllowedPdf": "Nur PDF-Dateien sind erlaubt"
   },
   "toast": {
     "loginSuccess": "Erfolgreich eingeloggt.",
