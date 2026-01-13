@@ -111,136 +111,118 @@
   </Form>
 </template>
 
-<script>
+<script setup>
+import { computed, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import { Form, Field, ErrorMessage } from 'vee-validate';
-import { useToastStore } from '@/stores/toast/toast';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '@/config/firebase';
-import { useAuthStore } from '@/stores/auth/auth';
 import { useI18n } from 'vue-i18n';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+
+import Icon from '@/components/ui/Icon.vue';
+import { useToastStore } from '@/stores/toast/toast';
+import { useAuthStore } from '@/stores/auth/auth';
+import { auth } from '@/config/firebase';
 import { createLoginSchema, createRegisterSchema } from '@/schemas';
 
-export default {
-  name: 'AuthForm',
+// i18n
+const { t } = useI18n();
 
-  setup() {
-    const { t, locale } = useI18n();
-    return { t, locale };
+// Props
+const props = defineProps({
+  mode: {
+    type: String,
+    required: true,
+    validator: value => ['login', 'register'].includes(value),
   },
+});
 
-  components: {
-    Form,
-    Field,
-    ErrorMessage,
-  },
+// State
+const isLoading = ref(false);
+const showPassword = ref(false);
+const showConfirmPassword = ref(false);
 
-  props: {
-    mode: {
-      type: String,
-      required: true,
-      validator: value => ['login', 'register'].includes(value),
-    },
-  },
+// Stores
+const authStore = useAuthStore();
+const toast = useToastStore();
 
-  data() {
-    return {
-      isLoading: false,
-      showPassword: false,
-      showConfirmPassword: false,
-    };
-  },
+// Router
+const router = useRouter();
+const route = useRoute();
 
-  computed: {
-    authStore() {
-      return useAuthStore();
-    },
-    toast() {
-      return useToastStore();
-    },
-    passwordAutocomplete() {
-      return this.mode === 'register' ? 'new-password' : 'current-password';
-    },
-    schema() {
-      return this.mode === 'login' ? createLoginSchema() : createRegisterSchema();
-    },
-    toggleInputType() {
-      return this.showPassword ? 'text' : 'password';
-    },
-    toggleConfirmInputType() {
-      return this.showConfirmPassword ? 'text' : 'password';
-    },
-    // Dynamic Submit Button Label
-    submitLabel() {
-      if (this.mode === 'register') {
-        return this.isLoading
-          ? this.t('general.btn.ui.creatingAccount')
-          : this.t('general.btn.ui.createAccount');
-      }
-      return this.isLoading ? this.t('general.btn.ui.signingIn') : this.t('general.btn.ui.signIn');
-    },
-    showPasswordLabel() {
-      return this.showPassword
-        ? this.t('auth.general.hidePassword')
-        : this.t('auth.general.showPassword');
-    },
-    showPasswordConfirmLabel() {
-      return this.showConfirmPassword
-        ? this.t('auth.general.hidePassword')
-        : this.t('auth.general.showPassword');
-    },
-  },
+// Computeds
+const passwordAutocomplete = computed(() =>
+  props.mode === 'register' ? 'new-password' : 'current-password'
+);
 
-  methods: {
-    async onSubmit(values) {
-      try {
-        this.isLoading = true;
+const schema = computed(() =>
+  props.mode === 'login' ? createLoginSchema() : createRegisterSchema()
+);
 
-        // Register Mode
-        if (this.mode === 'register') {
-          const userCredential = await createUserWithEmailAndPassword(
-            auth,
-            values.email,
-            values.password
-          );
-          await this.authStore.createUserDocument(userCredential.user);
-          this.toast.success(this.t('toast.registerSuccess'));
-          this.$router.push({ name: 'home' });
-        }
-        // Login Mode
-        else {
-          const userCredential = await signInWithEmailAndPassword(
-            auth,
-            values.email,
-            values.password
-          );
-          await this.authStore.createUserDocument(userCredential.user);
-          this.toast.success(this.t('toast.loginSuccess'));
+const toggleInputType = computed(() => (showPassword.value ? 'text' : 'password'));
 
-          // Redirect to previous page or home
-          const redirectPath = this.$route.query.redirect || '/';
-          this.$router.push(redirectPath);
-        }
+const toggleConfirmInputType = computed(() => (showConfirmPassword.value ? 'text' : 'password'));
 
-        this.isLoading = false;
-      } catch (error) {
-        this.isLoading = false;
+const submitLabel = computed(() => {
+  if (props.mode === 'register') {
+    return isLoading.value
+      ? t('general.btn.ui.creatingAccount')
+      : t('general.btn.ui.createAccount');
+  }
+  return isLoading.value ? t('general.btn.ui.signingIn') : t('general.btn.ui.signIn');
+});
 
-        // Handle Firebase Auth Errors
-        if (error.code === 'auth/invalid-credential') {
-          this.toast.error(this.t('errors.invalidCredentials'));
-        } else if (error.code === 'auth/email-already-in-use') {
-          this.toast.error(this.t('errors.emailAlreadyInUse'));
-        } else {
-          this.toast.error(error.message);
-        }
-      }
-    },
-    togglePassword() {
-      this.showPassword = !this.showPassword;
-    },
-    toggleConfirmPassword() {
-      this.showConfirmPassword = !this.showConfirmPassword;
-    },
-  },
+const showPasswordLabel = computed(() =>
+  showPassword.value ? t('auth.general.hidePassword') : t('auth.general.showPassword')
+);
+
+const showPasswordConfirmLabel = computed(() =>
+  showConfirmPassword.value ? t('auth.general.hidePassword') : t('auth.general.showPassword')
+);
+
+// Methods
+const onSubmit = async values => {
+  try {
+    isLoading.value = true;
+
+    if (props.mode === 'register') {
+      // Register Mode
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        values.email,
+        values.password
+      );
+      await authStore.createUserDocument(userCredential.user);
+      toast.success(t('toast.registerSuccess'));
+      await router.push({ name: 'home' });
+    } else {
+      // Login Mode
+      const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
+      await authStore.createUserDocument(userCredential.user);
+      toast.success(t('toast.loginSuccess'));
+
+      // Redirect to previous page or home
+      const redirectPath = route.query.redirect || '/';
+      await router.push(redirectPath);
+    }
+  } catch (error) {
+    // Handle Firebase Auth Errors
+    if (error.code === 'auth/invalid-credential') {
+      toast.error(t('errors.invalidCredentials'));
+    } else if (error.code === 'auth/email-already-in-use') {
+      toast.error(t('errors.emailAlreadyInUse'));
+    } else {
+      toast.error(error.message);
+    }
+  } finally {
+    isLoading.value = false;
+  }
+};
+
+const togglePassword = () => {
+  showPassword.value = !showPassword.value;
+};
+
+const toggleConfirmPassword = () => {
+  showConfirmPassword.value = !showConfirmPassword.value;
 };
 </script>
