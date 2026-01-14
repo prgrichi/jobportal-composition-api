@@ -145,6 +145,7 @@
 
 <script setup>
 import { computed } from 'vue';
+
 import BaseModal from './BaseModal.vue';
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import { createJobApplicationSchema } from '@/schemas';
@@ -161,15 +162,16 @@ defineProps({
   },
 });
 
-const emit = defineEmits(['close']);
-
-const schema = createJobApplicationSchema();
 const authStore = useAuthStore();
+const schema = createJobApplicationSchema();
+
 const initialValues = computed(() => {
   return {
     email: authStore.user?.email || '',
   };
 });
+
+const emit = defineEmits(['close']);
 
 const onClose = () => {
   emit('close');
